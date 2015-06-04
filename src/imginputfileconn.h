@@ -38,7 +38,7 @@ namespace dd
 
     int read_file(const std::string &fname)
     {
-      _img = cv::imread(fname,_bw ? CV_LOAD_IMAGE_GRAYSCALE : CV_LOAD_IMAGE_COLOR);
+      _img = cv::imread(fname,_bw ? IMREAD_GRAYSCALE : IMREAD_COLOR);
       if (_img.empty())
 	return -1;
       return 0;
@@ -48,7 +48,7 @@ namespace dd
     {
       std::vector<unsigned char> vdat(content.begin(),content.end());
       cv::Mat timg(vdat,true);
-      _img = cv::Mat(cv::imdecode(timg,_bw ? CV_LOAD_IMAGE_GRAYSCALE : CV_LOAD_IMAGE_COLOR));
+      _img = cv::Mat(cv::imdecode(timg,_bw ? IMREAD_GRAYSCALE : IMREAD_COLOR));
       if (_img.empty())
 	return -1;
       return 0;
